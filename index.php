@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="description" content="Jekyll Blog Maker">
+	<meta name="description" content="Jekyll Post Maker">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="icon" href='/assets/img/favicon.png'> 
-	<title> Jekyll Blog Maker </title>
+	<title> Jekyll Post Maker </title>
 	<link href="/assets/css/materialize.min.css" rel="stylesheet" >
 </head>
 <body class="container">
@@ -29,7 +28,7 @@ categories: {$category}
 {$content}
 ";
 
-	file_put_contents ( $filename, $fc );
+	file_put_contents ( "../_posts/".$filename, $fc );
 		
 		
 	}
@@ -51,7 +50,7 @@ categories: {$category}
      }
 
 	echo "<div class='center'>";
-	echo "<h4>Jekyll Blog Maker</h4>";
+	echo "<h4>Jekyll Post Maker</h4>";
 	echo "</div>";
 	
 	echo "<form method='post' action=''>";
@@ -85,7 +84,6 @@ categories: {$category}
 	echo "</form>";
 ?>
 
-		<script src="/assets/js/jquery.min.js"></script>
 		<script src="/assets/js/materialize.min.js" charset="utf-8"></script>
 		<script type="text/javascript">
 			document.addEventListener('DOMContentLoaded', function() {
