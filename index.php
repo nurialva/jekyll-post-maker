@@ -4,8 +4,11 @@
  * update timezone with yours
  **/
 
-$base_url = "~/catatanku/";
 date_default_timezone_set("Asia/Jakarta");
+
+if ( is_dir ( ".git") ) {
+	echo "pp";
+}
 
 ?>
 
@@ -39,7 +42,7 @@ categories: {$category}
 {$content}
 ";
 
-	file_put_contents ( $base_url . "_posts/".$filename, $fc );
+	file_put_contents (  "../_posts/".$filename, $fc );
 		
 		
 	}
