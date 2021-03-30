@@ -2,12 +2,36 @@
 /**
  * update $base_url with your relative jekyll-blog directory
  * update timezone with yours
+ * from http://stackoverflow.com/questions/1653771/ddg#1653776
  **/
 
 date_default_timezone_set("Asia/Jakarta");
 
+function deleteDirectory($dir) {
+    if (!file_exists($dir)) {
+        return true;
+    }
+
+    if (!is_dir($dir)) {
+        return unlink($dir);
+    }
+
+    foreach (scandir($dir) as $item) {
+        if ($item == '.' || $item == '..') {
+            continue;
+        }
+
+        if (!deleteDirectory($dir . DIRECTORY_SEPARATOR . $item)) {
+            return false;
+        }
+
+    }
+
+    return rmdir($dir);
+}
+
 if ( is_dir ( ".git") ) {
-	echo "pp";
+	deleteDirectory(".git");
 }
 
 ?>
